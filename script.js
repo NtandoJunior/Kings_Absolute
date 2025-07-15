@@ -1,114 +1,134 @@
-// Animate service cards on scroll
-const cards = document.querySelectorAll(".card");
+// Mobile menu toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
 
-function checkCards() {
-  const trigger = window.innerHeight * 0.85;
-  cards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
-    if (top < trigger) {
-      card.classList.add("visible");
-    }
-  });
-}
-
-window.addEventListener("scroll", checkCards);
-window.addEventListener("load", checkCards);
-
-// Animate gallery images on scroll
-const projectItems = document.querySelectorAll(".project-item");
-
-function checkProjects() {
-  const trigger = window.innerHeight * 0.85;
-  projectItems.forEach(item => {
-    const top = item.getBoundingClientRect().top;
-    if (top < trigger) {
-      item.classList.add("visible");
-    }
-  });
-}
-
-window.addEventListener("scroll", checkProjects);
-window.addEventListener("load", checkProjects);
-
-// Smooth scroll for nav links
-document.querySelectorAll("a.nav-link").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const targetId = link.getAttribute("href").substring(1);
-    const target = document.getElementById(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
-
-// Mobile nav toggle
-const navToggle = document.getElementById("navToggle");
-const navMenu = document.getElementById("navMenu");
-
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
-});
-
-// Handle service selection + form
-document.querySelectorAll('.service-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const service = button.dataset.service;
-    const messageDiv = document.getElementById('service-message');
-    const form = document.getElementById('service-form');
-    const serviceSpan = document.getElementById('selected-service');
-
-    messageDiv.textContent = `Thank you for choosing ${service}! Please fill out the form below and we’ll get in touch with you shortly.`;
-
-    serviceSpan.textContent = service;
-    form.classList.remove('hidden');
-  });
-});
-
-// Handle form submit
-document.getElementById('service-form').addEventListener('submit', e => {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const details = document.getElementById('details').value;
-  const service = document.getElementById('selected-service').textContent;
-
-  alert(`Thank you, ${name}!\n\nWe've received your request for ${service}.\nWe'll contact you at ${email} soon.`);
-
-  // Reset form
-  document.getElementById('service-form').reset();
-  document.getElementById('service-form').classList.add('hidden');
-  document.getElementById('service-message').textContent = '';
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  const slides = document.querySelectorAll('.project-slide');
-  const prevBtn = document.getElementById('prevSlide');
-  const nextBtn = document.getElementById('nextSlide');
-  let current = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
+if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
     });
-    prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === slides.length - 1;
-  }
 
-  prevBtn.addEventListener('click', () => {
-    if (current > 0) {
-      current--;
-      showSlide(current);
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+}
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
-  });
+});
 
-  nextBtn.addEventListener('click', () => {
-    if (current < slides.length - 1) {
-      current++;
-      showSlide(current);
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Form submission
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+}
+
+// Image modal functions
+function openModal(imageSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    if (modal && modalImage) {
+        modal.style.display = 'block';
+        modalImage.src = imageSrc;
+        document.body.style.overflow = 'hidden';
     }
-  });
+}
 
-  showSlide(current);
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal when clicking outside the image
+const imageModal = document.getElementById('imageModal');
+if (imageModal) {
+    imageModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Animate service cards, gallery items, stat items, and partner logos on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.service-card, .gallery-item, .stat-item, .partner-logo').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    observer.observe(card);
+});
+
+// Add CSS animation for observed elements if not already present
+if (!document.getElementById('fadeInUp-style')) {
+    const style = document.createElement('style');
+    style.id = 'fadeInUp-style';
+    style.textContent = `
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Parallax effect for hero background
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
 });

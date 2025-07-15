@@ -1,169 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kings Absolute Services</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kings Absolute Services - Construction & Renovation Excellence</title>
+   
 </head>
 <body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/Logo.jpg" alt="Kings Absolute Logo" class="logo-image" style="width:40px; height:40px; border-radius:50%; margin-right:10px;">
+                KINGS ABSOLUTE
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <header>
-    <div class="container">
-      <h1>Kings Absolute Services</h1>
-      <nav>
-        <div class="nav-toggle" id="navToggle">&#9776;</div>
-        <ul id="navMenu">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#services" class="nav-link">Our Work</a></li>
-          <li><a href="#choose-service" class="nav-link">Request Service</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#about" class="nav-link">About Us</a></li>
-          <li><a href="#partners" class="nav-link">Partners</a></li>
-          <li><a href="#business-card" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>KINGS ABSOLUTE SERVICES</h1>
+            <p class="tagline">Building your dreams with precision and care</p>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                Start Your Project
+            </button>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚿</div>
+                <h3>Plumbing</h3>
+                <p>Reliable plumbing solutions for your home or business. From fixing leaks to installing new fixtures, our skilled plumbers provide efficient and effective services to keep your plumbing system in top condition.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠🖌️</div>
+                <h3>Painting</h3>
+                <p>Professional painting services for a fresh new look. Our experienced painters use top-quality materials to deliver a flawless finish, enhancing the beauty and value of your property.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔨</div>
+                <h3>Renovations</h3>
+                <p>Transform your space with modern renovations. Whether it's updating your home or revitalizing your commercial space, we deliver stunning transformations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Maintenance Services</h3>
+                <p>Comprehensive maintenance solutions to keep your property in perfect condition. From routine upkeep to emergency repairs, we've got you covered.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="section">
+            <h2>Project Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('images/Fireplace_2.jpg')">
+                    <img src="images/Fireplace_2.jpg" alt="Fireplace Remodel 2" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Fireplace Remodel</h3>
+                            <p>Modern stonework and cozy design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Shower.jpg')">
+                    <img src="images/Shower.jpg" alt="Modern Shower Renovation" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Shower Renovation</h3>
+                            <p>Elegant shower remodel with contemporary fixtures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Pool.jpg')">
+                    <img src="images/Pool.jpg" alt="Luxury Pool Installation" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Pool Installation</h3>
+                            <p>Custom pool design for relaxation and entertainment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Roof.jpg')">
+                    <img src="images/Roof.jpg" alt="Roof Replacement" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Roof Replacement</h3>
+                            <p>Durable and weather-resistant roofing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Fireplace_1.jpg')">
+                    <img src="images/Fireplace_1.jpg" alt="Fireplace Remodel 1" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Fireplace Remodel</h3>
+                            <p>Classic fireplace with updated features</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Fireplace_3.jpg')">
+                    <img src="images/Fireplace_3.jpg" alt="Fireplace Remodel 3" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Fireplace Remodel</h3>
+                            <p>Elegant and modern fireplace design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Bathroom.jpg')">
+                    <img src="images/Bathroom.jpg" alt="Bathroom Renovation" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Bathroom Renovation</h3>
+                            <p>Luxurious bathroom with modern amenities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Roofing.jpg')">
+                    <img src="images/Roofing.jpg" alt="Roofing Project" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Roofing Project</h3>
+                            <p>High-quality roofing installation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2>About Kings Absolute Services</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>At Kings Absolute Services</strong>, we're passionate about delivering exceptional construction, renovation, and maintenance solutions that exceed our clients' expectations. With a strong commitment to quality, reliability, and customer satisfaction, we've established ourselves as a trusted partner in the industry.</p>
+                
+                <h3>Our Story</h3>
+                <p>Founded with a vision to provide top-notch services, Kings Absolute Services has grown into a reputable company with a team of skilled professionals. Our journey is built on a foundation of hard work, dedication, and a relentless pursuit of excellence.</p>
+                
+                <h3>Our Mission</h3>
+                <p>Our mission is to make things easier for our clients by providing efficient, effective, high-quality solutions catering to their unique needs. We're driven by a passion for innovation, a commitment to sustainability, and a focus on building long-term relationships.</p>
+                
+                <h3>Our Approach</h3>
+                <p>We understand that every project is unique, which is why we adopt a flexible approach to project management. Our team is proficient in both Agile and Waterfall methodologies, allowing us to tailor our approach to suit the specific needs of each project. Whether you require the adaptability of Agile or the structure of Waterfall, we've got you covered.</p>
+                
+                <h3>Our Values</h3>
+                <ul>
+                    <li><strong>Quality:</strong> We strive for excellence in every aspect of our work.</li>
+                    <li><strong>Reliability:</strong> We're committed to delivering reliable solutions that our clients can trust.</li>
+                    <li><strong>Customer-centricity:</strong> We put our clients at the forefront of everything we do.</li>
+                </ul>
+                
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li><strong>Experience:</strong> Our team has extensive experience in delivering high-quality services.</li>
+                    <li><strong>Expertise:</strong> Our professionals are skilled and knowledgeable in their respective fields.</li>
+                    <li><strong>Customer satisfaction:</strong> We prioritize our clients' needs and strive to exceed their expectations.</li>
+                    <li><strong>Flexible project management:</strong> We adapt our approach to suit your project's unique needs.</li>
+                </ul>
+                
+                <h3>Get in Touch</h3>
+                <p>If you're looking for a reliable partner to help you achieve your goals, look no further than Kings Absolute Services. Contact us today to learn more about our services and how we can help you.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+        
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <section class="section partners-section" id="partners">
+        <h2>Our Trusted Partners</h2>
+        <div class="partners-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+            <div class="partner-logo">
+                <img src="images/Tonywood.jpg" alt="Tonywood Logo" style="max-height:50px; max-width:100px;">
+            </div>
+            <div class="partner-logo">
+                <img src="images/P&amp;P.jpg" alt="P&amp;P Logo" style="max-height:50px; max-width:100px;">
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service" style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                        <option value="">Select a service</option>
+                        <option value="renovation">Renovations</option>
+                        <option value="painting">Painting</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="facility-maintenance">Facility Maintenance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+            </form>
+            <div class="contact-email" style="margin-top:1.5rem; text-align:center;">
+                <strong>Email us directly:</strong>
+                <a href="mailto:info@kingsabsoluteservices.co.za" style="color:#fff; text-decoration:underline;">
+                    info@kingsabsoluteservices.co.za
+                </a>
+                <br>
+                <br>
+                <strong>Phone:</strong>
+                <a href="tel:+27815933598" style="color:#fff; text-decoration:underline;">
+                    +27-81-593-3598
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>&copy; 2025 Kings Absolute Services. All rights reserved.</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/kings-absolute/" target="_blank" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+                    <!-- LinkedIn SVG -->
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/kings.absolute.services/" target="_blank" class="social-link" title="Instagram" aria-label="Instagram">
+                    <!-- Instagram SVG -->
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.012-4.947.07-1.276.058-2.687.334-3.678 1.325-.991.991-1.267 2.402-1.325 3.678-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.334 2.687 1.325 3.678.991.991 2.402 1.267 3.678 1.325 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.687-.334 3.678-1.325.991-.991 1.267-2.402 1.325-3.678.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.334-2.687-1.325-3.678-.991-.991-2.402-1.267-3.678-1.325-1.28-.058-1.688-.07-4.947-.07zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+                <a href="https://web.facebook.com/kingsabsoluteservices?_rdc=1&_rdr#" target="_blank" class="social-link" title="Facebook" aria-label="Facebook">
+                    <!-- Facebook SVG -->
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22.675 0h-21.35c-.733 0-1.325.592-1.325 1.326v21.348c0 .733.592 1.326 1.325 1.326h11.495v-9.294h-3.128v-3.622h3.128v-2.672c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116c.733 0 1.325-.593 1.325-1.326v-21.349c0-.733-.592-1.326-1.325-1.326z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+        </div>
     </div>
-  </header>
 
-  <section id="home" class="hero">
-    <div class="container">
-      <h2>Your Trusted Construction Partner</h2>
-      <p>Building your dreams with precision and care.</p>
-      <a href="#services" class="btn">See Our Work</a>
-    </div>
-  </section>
-
-  <section id="services" class="services">
-    <div class="container">
-      <h2>Our Work</h2>
-      <div class="service-cards">
-        <div class="card from-left">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Residential Building" />
-          <h3>Residential Building</h3>
-          <p>High quality homes built with care and precision.</p>
-        </div>
-        <div class="card from-bottom">
-          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Commercial Projects" />
-          <h3>Commercial Projects</h3>
-          <p>Strong and durable commercial buildings for your business.</p>
-        </div>
-        <div class="card from-right">
-          <img src="https://images.unsplash.com/photo-1560448204-96d69b2474c8?auto=format&fit=crop&w=400&q=80" alt="Renovations" />
-          <h3>Renovations</h3>
-          <p>Transform your space with modern renovations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="choose-service" class="choose-service">
-    <div class="container">
-      <h2>Request a Service</h2>
-      <p>Select the type of service you’re interested in:</p>
-      <div class="service-options">
-        <button class="service-btn" data-service="Renovations">Renovations</button>
-        <button class="service-btn" data-service="Painting">Painting</button>
-        <button class="service-btn" data-service="Plumbing">Plumbing</button>
-        <button class="service-btn" data-service="Facility Maintenance">Facility Maintenance</button>
-      </div>
-      <div id="service-message" class="service-message"></div>
-
-      <form id="service-form" class="service-form hidden">
-        <h3>Request Details</h3>
-        <p>You've selected: <span id="selected-service"></span></p>
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="email" id="email" placeholder="Your Email" required />
-        <textarea id="details" placeholder="Tell us more about your project..." required></textarea>
-        <button type="submit" class="btn">Submit Request</button>
-      </form>
-    </div>
-  </section>
-
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2>Our Projects</h2>
-      <p>Take a look at some of our recent work:</p>
-      <div class="project-gallery">
-        <div class="project-item"><img src="images/Roofing.jpg" alt="Project 1"></div>
-        <div class="project-item"><img src="images/Roof.jpg" alt="Project 2"></div>
-        <div class="project-item"><img src="images/Fireplace_3.jpg" alt="Project 3"></div>
-        <div class="project-item"><img src="images/Fireplace_2.jpg" alt="Project 4"></div>
-        <div class="project-item"><img src="images/Fireplace_1.jpg" alt="Project 5"></div>
-        <div class="project-item"><img src="images/Bathroom.jpg" alt="Project 6"></div>
-      </div>
-      <div class="project-slider mobile-only">
-        <div class="project-slide active">
-          <img src="images/Roofing.jpg" alt="Project 1">
-        </div>
-        <div class="project-slide">
-          <img src="images/Roof.jpg" alt="Project 2">
-        </div>
-        <div class="project-slide">
-          <img src="images/Fireplace_3.jpg" alt="Project 3">
-        </div>
-        <div class="project-slide">
-          <img src="images/Fireplace_2.jpg" alt="Project 4">
-        </div>
-        <div class="project-slide">
-          <img src="images/Fireplace_1.jpg" alt="Project 5">
-        </div>
-        <div class="project-slide">
-          <img src="images/Bathroom.jpg" alt="Project 6">
-        </div>
-        <div class="slider-controls">
-          <button class="slider-btn" id="prevSlide">&#8592;</button>
-          <button class="slider-btn" id="nextSlide">&#8594;</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="about-section">
-    <div class="container">
-      <h2>About Kings Absolute Services</h2>
-      <p><strong>At Kings Absolute Services</strong>, we're passionate about delivering exceptional construction, renovation, and maintenance solutions that exceed our clients' expectations...</p>
-      <!-- rest of about text from previous message -->
-    </div>
-  </section>
-
-  <section id="partners" class="partners">
-    <div class="container">
-      <h2>Our Partners</h2>
-      <div class="partner-logos">
-        <img src="images/P&P.jpg" alt="Hilti" />
-        <img src="images/Tonywood.jpg" alt="Bosch" />
-  
-      </div>
-    </div>
-  </section>
-
-  <section id="business-card" class="business-card">
-    <div class="container">
-      <div class="card-content">
-        <h2>Kings Absolute Services</h2>
-        <p>Email: <a href="mailto:info@kingsabsoluteservices.co.za">info@kingsabsoluteservices.co.za</a></p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-content">
-      <div>
-        <h3>Contact Us</h3>
-        <p>Email: info@kingsabsoluteservices.co.za</p>
-        <p>Phone: +1 234 567 8900</p>
-        <p>Address: 123 Main St, Anytown, SA</p>
-      </div>
-      <div class="social-links">
-        <a href="https://linkedin.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/174/174857.png" alt="LinkedIn" /></a>
-        <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/174/174855.png" alt="Instagram" /></a>
-        <a href="https://facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook" /></a>
-      </div>
-    </div>
-    <p class="copyright">&copy; 2025 Kings Absolute Services. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
