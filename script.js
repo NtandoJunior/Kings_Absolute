@@ -43,15 +43,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
-    });
-}
+// Initialize EmailJS (replace 'YOUR_PUBLIC_KEY' with your actual public key)
+emailjs.init('ZC9z_c5FUZFHl8mC8'); //done
+
+// Connect contact form to EmailJS
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Replace with your EmailJS service ID and template ID
+            emailjs.sendForm('service_utgzy4v', 'template_f81datb', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                }, function(error) {
+                    alert('Failed to send message. Please try again.');
+                });
+        });
+    }
+});
 
 // Image modal functions
 function openModal(imageSrc) {
